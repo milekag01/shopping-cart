@@ -1,0 +1,167 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    box-sizing: inherit;
+}
+body{
+    box-sizing: border-box;
+    padding: 3rem;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 400;
+    color: #777;
+    line-height: 1.7;
+}
+html{
+    font-size: 62.5%;
+}
+.nav{
+    height: 8vh;
+    background-image: linear-gradient(to right bottom, rgba(20, 26, 33, 0.88), rgba(41, 50, 60, 0.88));
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+.nav__logo-box{
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
+}
+.nav__logo{
+    height: 8rem;
+}
+.nav__elements{
+    margin-right: 2rem;
+}
+.nav__elements--options{
+    list-style-type: none;
+    background: transparent;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+.nav__elements--options li{
+    float: right;
+    padding-top: 1rem;
+}
+.nav__elements--options li a{
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover{
+    color: #42c2f4;
+    transition: ease-in 0.2s;
+}
+
+.catelog{
+    background-color: #f7f7f7;
+    padding: 5rem 6rem;
+}
+
+.u-center-text {
+    text-align: center !important; }
+  
+.u-margin-bottom-big {
+    margin-bottom: 8rem !important; }
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: rgba(41, 50, 60, 0.88);
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    transition: all 0.2s; }
+
+.row {
+    max-width: 114rem;
+    margin: 0 auto; }
+.row:not(:last-child) {
+    margin-bottom: 8rem; }
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table; }
+
+.row [class^="col-"] {
+    float: left; }
+.row [class^="col-"]:not(:last-child) {
+    margin-right: 6rem; }
+.row .col-1-of-3 {
+    width: calc((100% - 2*6rem)/3); }
+
+.card {
+    position: relative;
+    height: 52rem; }
+.card__side {
+    height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+}
+
+.card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-image: url('https://cdni.rt.com/files/2018.02/article/5a746f8dfc7e937e778b4567.jpg');
+    background-position: right;
+}
+.card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: #fff;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%; }
+    .card__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone; }
+
+.card__details {
+    padding: 3rem; }
+
+.card__details ul {
+list-style-type: none;
+width: 80%;
+margin: 0 auto; }
+
+.card__details ul li {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem; }
+
+.card__details ul li:not(:last-child) {
+    border-bottom: 1px solid #eee; }
+          
+
+.btn {
+    background-color: rgba(41, 50, 60, 0.88);
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 1.5rem 3rem;
+    width: 100%;
+
+    cursor: pointer;
+    transition: all 0.2s; }
+    .btn:hover {
+      background-color: rgba(20, 26, 33, 0.88); }
