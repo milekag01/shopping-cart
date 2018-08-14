@@ -8,72 +8,34 @@
                         PRODUCTS
                     </h2>    
                 </div>
-
-                <div class="row">
-                    <div class="col-1-of-3">
-                        <div class="card">
-                            <div class="card__side">
-                                <div class="card__picture">
-
-                                </div>
-                                <div class="card__heading">
-                                    <span class="card__heading-span">Apple iPhone X</span>
-                                </div>
-                                <div class="card__details">
-                                    <ul>
-                                        <li>Space Grey, 256GB</li>
-                                        <li>3GB RAM</li>
-                                        <li>Only 1 left in stock</li>
-                                        <li>Price: Rs.99,900</li>
-                                    </ul>
-                                    <button class="btn">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-1-of-3">
-                        <div class="card">
-                            <div class="card__side">
-                                <div class="card__picture">
-
-                                </div>
-                                <div class="card__heading">
-                                    <span class="card__heading-span">Apple iPhone X</span>
-                                </div>
-                                <div class="card__details">
-                                    <ul>
-                                        <li>Space Grey, 256GB</li>
-                                        <li>3GB RAM</li>
-                                        <li>Only 1 left in stock</li>
-                                        <li>Price: Rs.99,900</li>
-                                    </ul>
-                                    <button class="btn">Buy Now</button>
+                
+                <%product.forEach(function(chunk){%>
+                    <div class="row">
+                        <%chunk.forEach(function(product){%>
+                            <div class="col-1-of-3">
+                            <div class="card">
+                                <div class="card__side">
+                                    <div class="card__picture" style="background-image: url('<%=product.image%>')">
+                                    </div>
+                                    <div class="card__heading">
+                                        <span class="card__heading-span"><%=product.name%></span>
+                                    </div>
+                                    <div class="card__details">
+                                        <ul>
+                                            <li class="card__details--l1"><%=product.decl1%></li>
+                                            <li class="card__details--l2"><%=product.decl2%></li>
+                                            <li class="card__details--l3"><%=product.decl3%></li>
+                                            <li class="card__details--price">Price: Rs.<%=product.price%></li>
+                                        </ul>
+                                        <button class="btn">Add to cart</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-1-of-3">
-                        <div class="card">
-                            <div class="card__side">
-                                <div class="card__picture">
-
-                                </div>
-                                <div class="card__heading">
-                                    <span class="card__heading-span">Apple iPhone X</span>
-                                </div>
-                                <div class="card__details">
-                                    <ul>
-                                        <li>Space Grey, 256GB</li>
-                                        <li>3GB RAM</li>
-                                        <li>Only 1 left in stock</li>
-                                        <li>Price: Rs.99,900</li>
-                                    </ul>
-                                    <button class="btn">Buy Now</button>
-                                </div>
                             </div>
-                        </div>
+                        <%})%>
                     </div>
-                </div>
+                <%})%>
+                
             </section>
         </div>
     </main>

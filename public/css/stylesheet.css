@@ -81,7 +81,7 @@ li a:hover{
     max-width: 114rem;
     margin: 0 auto; }
 .row:not(:last-child) {
-    margin-bottom: 8rem; }
+    margin-bottom: 5rem; }
 
 .row::after {
     content: "";
@@ -89,11 +89,12 @@ li a:hover{
     display: table; }
 
 .row [class^="col-"] {
-    float: left; }
+    float: left;
+}
 .row [class^="col-"]:not(:last-child) {
     margin-right: 6rem; }
-.row .col-1-of-3 {
-    width: calc((100% - 2*6rem)/3); }
+.col-1-of-3 {
+    width: calc((100% - 2*8rem)/3); }
 
 .card {
     position: relative;
@@ -115,7 +116,7 @@ li a:hover{
 .card__picture {
     background-size: cover;
     height: 23rem;
-    background-image: url('https://cdni.rt.com/files/2018.02/article/5a746f8dfc7e937e778b4567.jpg');
+    /*background-image: url();*/
     background-position: right;
 }
 .card__heading {

@@ -1,18 +1,38 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require("mongoose");
+var session = require("express-session");
+var passport = require("passport");
+var flash = require("connect-flash");
+var validator = require("express-validator");
+
 
 var app = express();
+// var router = express.Router();
+var indexroutes = require("./routes/routes");
+
+mongoose.connect('mongodb://localhost/shopping');
+
+require("./config/passport");
+
+// var Product = require("./models/product");
+
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(validator());  //this should come after the bodyparser
+
 app.set('view engine','ejs');
 app.use(express.static('public'));
 
-app.get('/',function(req,res){
-    res.redirect('/products');
-});
+app.use(session({
+    secret:'13 reasons why',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(flash()); //it needs to initialize session first
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get('/products',function(req,res){
-    res.render('index');
-});
+app.use(indexroutes);
 
 app.listen(process.env.PORT,process.env.IP,function(){
     console.log('Server started');
