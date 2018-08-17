@@ -17,8 +17,15 @@
             </div>
             <div class="nav__elements">
                 <ul class="nav__elements--options">
-                    <li><a><i class="fas fa-shopping-cart"></i> Cart</a></li>
-                    <li><a><i class="fas fa-user"></i> User</a></li>
+                    <%if(login){%>
+                        <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a href="/user/profile"><i class="fas fa-user"></i> User</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <%}else{%>
+                        <li><a href="/user/signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="/user/signup"><i class="fas fa-user-plus"></i> SignUp</a></li>
+                    <%}%>
+                    
                 </ul>
 
             </div>
