@@ -6,14 +6,17 @@
         
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="/css/stylesheet.css">
         
         <title>Shopping Cart</title>
     </head>
     <body>
         <nav class="nav">
             <div class="nav__logo-box">
-                <img src="http://files.softicons.com/download/business-icons/flatastic-icons-part-4-by-custom-icon-design/png/512x512/shopping-bag-blue.png" alt="Shopper" class="nav__logo">
+                <a href="/products">
+                    <img src="http://files.softicons.com/download/business-icons/flatastic-icons-part-4-by-custom-icon-design/png/512x512/shopping-bag-blue.png" alt="Shopper" class="nav__logo">
+                </a>
+                
             </div>
             <div class="nav__elements">
                 <ul class="nav__elements--options">
@@ -26,7 +29,7 @@
                     <%}%>
                     
                     <li>
-                        <a href="#">
+                        <a href="/shopping-cart">
                             <i class="fas fa-shopping-cart"></i> 
                             Cart 
                             <%if(session.cart){%>

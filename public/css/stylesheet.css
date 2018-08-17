@@ -57,7 +57,7 @@ li a:hover{
     transition: ease-in 0.2s;
 }
 
-.catelog{
+.catalog{
     background-color: #f7f7f7;
     padding: 5rem 6rem;
 }
@@ -73,7 +73,7 @@ li a:hover{
     text-transform: uppercase;
     color: rgba(41, 50, 60, 0.88);
     display: inline-block;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.2rem;
     transition: all 0.2s; }
 
@@ -180,4 +180,99 @@ margin: 0 auto; }
     position: absolute;
     top: 3.1rem;
     right: 27.1rem;
+}
+.cart__page{
+    background-color: #f7f7f7;
+    padding: 5rem 6rem;
+    min-height: 86vh; 
+}
+
+.shopping-cart{
+    background-color: #fff;
+    /*min-height: 43vh;*/
+    max-width: 114rem;
+    margin: -5rem auto 0 auto;
+    border-radius: 0.3rem;
+}
+.cart__empty{
+    height: 23rem;
+    display: block;
+    margin: 3rem auto;
+    padding-top: 4rem;
+}
+.shopping-cart__row{
+    width: 100%;
+    margin: 0 auto; 
+    /*background-color:#a9a9a9;*/
+    padding:2rem;
+}
+
+.shopping-cart__row:not(:last-child){
+    border-bottom: 1.5px solid #f6f6f6;
+}
+
+.shopping-cart__row--name,.shopping-cart__row--price,.shopping-cart__row--quantity{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: rgba(41, 50, 60, 0.88);
+    display: inline-block;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    /*margin: 0.5rem 20rem 0.5rem 0.5rem; */
+    width: 50%;
+}
+.shopping-cart__row--price{
+    width: 22%;
+    font-size: 2rem;
+    font-weight: 300;
+}
+.shopping-cart__row--quantity{
+    width: 20%;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.btn-remove,.btn-remove:link,.btn-remove:visited{
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border: none;
+    cursor: pointer; 
+    margin: 0.5rem 1rem 0.2rem 1rem;
+}
+
+.btn-remove:hover{
+    transform: translateY(-0.5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.btn-remove:active, .btn-remove:focus{
+    outline: none;
+    transform: translateY(0.5px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.07);
+}
+
+.remove{
+    background-color: #42c2f4;
+    color: #fff;
+}
+
+
+.shopping-cart__total-row{
+    background-color: #fff;
+    /*min-height: 43vh;*/
+    max-width: 114rem;
+    margin: 4rem auto 0 auto;
+    border-radius: 0.3rem;
+    /*height: 4rem;*/
+    padding:2rem;
+}
+
+.shopping-cart__total-row--button{
+    width: 20%;
 }

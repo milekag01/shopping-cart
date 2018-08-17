@@ -1,0 +1,52 @@
+<%include partials/header%>
+        <!-- Catalog -->
+    <div class="cart__page">
+        <section class="section-cart" id="section-cart">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    my cart
+                </h2>    
+            </div>
+        
+            <div class="shopping-cart">
+                <%if(products){%>
+                    <%products.forEach(function(product){%>
+                        <div class="shopping-cart__row">
+                            <span class="shopping-cart__row--name"><%=product.item.name%></span>
+                            <span class="shopping-cart__row--price">Rs.<%=product.price%></span>
+                            <span class="shopping-cart__row--quantity">qty: <%=product.qty%></span>
+                            
+                            <div class="shopping-cart__row--buttons">
+                                <button class="remove btn-remove">Remove One</button>
+                                <button class="remove btn-remove">Remove All</button>
+                            </div>
+                        </div>
+                    <%})%>
+                    
+                <%}else{%>
+                    <img class="cart__empty" src="http://www.comtechs.ca/images/Laptop.png" alt="laptopImg">
+                    <div class="u-center-text u-margin-bottom-big">
+                        <h2 class="heading-secondary">
+                            Your cart is empty
+                        </h2>    
+                    </div>
+                <%}%>
+            </div>
+            
+            <%if(products){%>
+                <div class="shopping-cart__total-row">
+                    <span class="shopping-cart__row--name">
+                        Amount Payable
+                    </span> 
+                    <span class="shopping-cart__row--price">
+                         rs.<%=totalPrice%>
+                    </span>
+                    <span class="shopping-cart__total-row--button">
+                        <button class="remove btn-remove">Place Order</button>
+                    </span>    
+                </div>
+            <%}%>
+            
+        </section>
+    </div>
+<%include partials/footer%>
