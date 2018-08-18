@@ -1,0 +1,39 @@
+<%include partials/header%>
+    <div class="cart__page">
+        <section class="section-checkout" id="section-checkout">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    checkout
+                </h2>    
+            </div>
+            
+            <div class="shopping-cart__total-row">
+                <span class="shopping-cart__row--name">
+                    Amount Payable
+                </span> 
+                <span class="shopping-cart__row--price">
+                     rs.<%=total%>
+                </span>
+            </div>
+            
+            <form method="post" action="/checkout">
+        		<label for="username">Name</label>
+        		<input type="text" name="username" id="username" required><br>
+        		<label for="address">Address</label>
+        		<input type="text" name="address" id="address" required><br>
+        		<label for="card-holder-name">Card Holder Name</label>
+        		<input type="text" name="card-holder-name" id="card-holder-name" required><br>
+        		<label for="card-number">Credit/Debit Card Number</label>
+        		<input type="Number" name="card-number" id="card-number" required><br>
+        		<label for="expmonth">Expiration Month</label>
+        		<input type="number" name="expmonth" id="expmonth" required><br>
+        		<label for="expyear">Expiration Year</label>
+        		<input type="number" name="expyear" id="expyear" required><br>
+        		<label for="cvc">CVC</label>
+        		<input type="number" name="cvc" id="cvc" required><br>
+        		<button type="submit">Make Payment</button><br>
+        	</form>
+        </section>
+    </div>
+
+<%include partials/footer%>
