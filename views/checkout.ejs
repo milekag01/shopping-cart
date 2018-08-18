@@ -15,25 +15,33 @@
                      rs.<%=total%>
                 </span>
             </div>
+            <%if(!noErrors){%>
+                <div id="charge-error">
+                    <%=errMsg%>
+                </div>
+            <%}%>
             
-            <form method="post" action="/checkout">
-        		<label for="username">Name</label>
-        		<input type="text" name="username" id="username" required><br>
+            <form method="post" action="/checkout" id="checkout-form">
+        		<label for="name">Name</label>
+        		<input type="text" id="name" required><br>
         		<label for="address">Address</label>
-        		<input type="text" name="address" id="address" required><br>
-        		<label for="card-holder-name">Card Holder Name</label>
-        		<input type="text" name="card-holder-name" id="card-holder-name" required><br>
+        		<input type="text" id="address" required><br>
+        		<label for="card-name">Card Holder Name</label>
+        		<input type="text" id="card-name" required><br>
         		<label for="card-number">Credit/Debit Card Number</label>
-        		<input type="Number" name="card-number" id="card-number" required><br>
-        		<label for="expmonth">Expiration Month</label>
-        		<input type="number" name="expmonth" id="expmonth" required><br>
-        		<label for="expyear">Expiration Year</label>
-        		<input type="number" name="expyear" id="expyear" required><br>
-        		<label for="cvc">CVC</label>
-        		<input type="number" name="cvc" id="cvc" required><br>
+        		<input type="text" name="card-number" id="card-number" required><br>
+        		<label for="card-expiry-month">Expiration Month</label>
+        		<input type="text" id="card-expiry-month" required><br>
+        		<label for="card-expiry-year">Expiration Year</label>
+        		<input type="text" id="card-expiry-year" required><br>
+        		<label for="card-cvc">CVC</label>
+        		<input type="text" id="card-cvc" required><br>
         		<button type="submit">Make Payment</button><br>
         	</form>
         </section>
     </div>
+    
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript" src="/javascript/checkout.js"></script>
 
 <%include partials/footer%>

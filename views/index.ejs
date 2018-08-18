@@ -8,6 +8,11 @@
                         PRODUCTS
                     </h2>    
                 </div>
+                <div class="row">
+                    <%if(!noMessages){%>
+                        <div id="success"><%=successMsg%></div>
+                    <%}%>
+                </div>
                 
                 <%product.forEach(function(chunk){%>
                     <div class="row">
