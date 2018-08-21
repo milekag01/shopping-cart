@@ -56,8 +56,9 @@ router.get('/checkout',isLoggedIn,function(req,res,next){
         return res.redirect('/shopping-cart');
     }
     var cart = new Cart(req.session.cart);
-    var errMsg = req.flash('error')[0];
-    res.render('checkout',{total: cart.totalPrice,errMsg: errMsg,noErrors: !errMsg});
+    var errMsg = req.flash('error');
+    console.log(errMsg.length);
+    res.render('checkout',{total: cart.totalPrice,Errors: errMsg.length>0,errMsg: errMsg[0]});
 });
 
 router.post('/checkout',function(req,res,next){

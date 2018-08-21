@@ -8,18 +8,22 @@
                 </h2>    
             </div>
             <%if(hasErrors) {messages.forEach(function(message){%>
-                <p><%=message%></p>
+                <div class="error__message red"><%=message%></div>
             <%})}%>
-            <form method="POST" action="/user/signin">
-                <label for="email">Email</label>
-                    <input type="email" name="email" id="email">
-                <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
+            <form method="POST" action="/user/signin" class="form">
+                <div class="form__group">
+                    <label for="email" class="form__label">Email</label>
+                    <input type="email" name="email" id="email" class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="password" class="form__label">Password</label>
+                    <input type="password" name="password" id="password" class="form__input">  
+                </div>
                     
-                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-                <button type="submit">Sign In</button>
+                <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                <button type="submit" class="remove btn-remove">Sign In</button>
             </form>
-            <a href="/user/signup"><button>Sign Up</button></a>
+            <a href="/user/signup"><button class="remove btn-remove">Sign Up</button></a>
         </section>
     </div>
 <%include ../partials/footer%>

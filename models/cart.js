@@ -13,6 +13,12 @@ module.exports = function Cart(oldCart){
         this.totalQty++;
         this.totalPrice += storedItem.item.price;
     };
+    // this.removeOne = function(id){
+    //     this.items[id].qty--;
+    //     this.items[id].item.price-=this.items[id].item.price;
+    //     this.totalPrice-=this.items[id].item.price;
+    //     this.totalQty-=1;
+    // };
     
     this.generateArray = function() {
         var arr = [];

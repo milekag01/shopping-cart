@@ -9,7 +9,7 @@
             </div>
         
             <div class="shopping-cart">
-                <%if(orders){%>
+                <%if(orders.length){%>
                     <%orders.forEach(function(order){%>
                         <div class="order__list">
                             <%order.items.forEach(function(product){%>

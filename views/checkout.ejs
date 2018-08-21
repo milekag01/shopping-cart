@@ -15,28 +15,43 @@
                      rs.<%=total%>
                 </span>
             </div>
-            <%if(!noErrors){%>
-                <div id="charge-error">
+            
+            <%console.log(Errors);if(Errors){%>
+                <div id="charge-error" class="error__message red">
                     <%=errMsg%>
                 </div>
             <%}%>
             
-            <form method="post" action="/checkout" id="checkout-form">
-        		<label for="name">Name</label>
-        		<input type="text" id="name" required name="name"><br>
-        		<label for="address">Address</label>
-        		<input type="text" id="address" required name="address"><br>
-        		<label for="card-name">Card Holder Name</label>
-        		<input type="text" id="card-name" required><br>
-        		<label for="card-number">Credit/Debit Card Number</label>
-        		<input type="text" name="card-number" id="card-number" required><br>
-        		<label for="card-expiry-month">Expiration Month</label>
-        		<input type="text" id="card-expiry-month" required><br>
-        		<label for="card-expiry-year">Expiration Year</label>
-        		<input type="text" id="card-expiry-year" required><br>
-        		<label for="card-cvc">CVC</label>
-        		<input type="text" id="card-cvc" required><br>
-        		<button type="submit">Make Payment</button><br>
+            <form method="post" action="/checkout" id="checkout-form" class="form">
+                <div class="form__group">
+                    <label for="name" class="form__label">Name</label>
+            		<input type="text" id="name" required name="name" class="form__input">
+                </div>
+                <div class="form__group">
+            		<label for="address" class="form__label">Address</label>
+            		<input type="text" id="address" required name="address" class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="card-name" class="form__label">Card Holder Name</label>
+        		    <input type="text" id="card-name" required class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="card-number" class="form__label">Credit/Debit Card Number</label>
+            		<input type="text" name="card-number" id="card-number" required class="form__input">
+                </div>
+                <div class="form__group">
+            		<label for="card-expiry-month" class="form__label">Expiration Month</label>
+            		<input type="text" id="card-expiry-month" required class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="card-expiry-year" class="form__label">Expiration Year</label>
+        		    <input type="text" id="card-expiry-year" required class="form__input">
+                </div>
+                <div class="form__group">
+                    <label for="card-cvc" class="form__label">CVC</label>
+            		<input type="text" id="card-cvc" required class="form__input">
+                </div>
+        		<button type="submit" class="remove btn-remove">Make Payment</button>
         	</form>
         </section>
     </div>
