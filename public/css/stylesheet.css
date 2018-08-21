@@ -266,7 +266,7 @@ margin: 0 auto; }
 }
 
 
-.shopping-cart__total-row{
+.shopping-cart__total-row,.cart__total-row{
     background-color: #fff;
     /*min-height: 43vh;*/
     max-width: 114rem;
@@ -278,4 +278,10 @@ margin: 0 auto; }
 
 .shopping-cart__total-row--button{
     width: 20%;
+}
+.order__list:not(:last-child){
+    border-bottom: 4rem solid #f6f6f6;
+}
+.cart__total-row{
+    margin: 0 auto 0 auto;
 }

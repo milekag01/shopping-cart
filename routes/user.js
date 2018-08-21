@@ -3,11 +3,25 @@ var router = express.Router();
 var csrf = require("csurf");
 var passport = require("passport");
 
+var Cart = require("../models/cart");
+var Order = require("../models/storeOrder");
+
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/profile',isLoggedIn,function(req,res,next){
-    res.render('user/profile');
+    Order.find({user: req.user},function(err,orders){
+        if(err){
+            console.log(err);
+            return res.send("Error");
+        }
+        var cart;
+        orders.forEach(function(order){
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        });
+        res.render('user/profile',{orders: orders});
+    });
 });
 
 router.get('/logout',isLoggedIn,function(req,res,next){

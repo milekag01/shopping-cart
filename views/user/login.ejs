@@ -1,16 +1,25 @@
 <%include ../partials/header%>
-    <h2>Sign In</h2>
-    <%if(hasErrors) {messages.forEach(function(message){%>
-        <p><%=message%></p>
-    <%})}%>
-    <form method="POST" action="/user/signin">
-        <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-        <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            
-            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-        <button type="submit">Sign In</button>
-    </form>
-    <a href="/user/signup"><button>Sign Up</button></a>
+
+    <div class="cart__page">
+        <section class="section-login" id="section-login">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Sign In
+                </h2>    
+            </div>
+            <%if(hasErrors) {messages.forEach(function(message){%>
+                <p><%=message%></p>
+            <%})}%>
+            <form method="POST" action="/user/signin">
+                <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                    
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                <button type="submit">Sign In</button>
+            </form>
+            <a href="/user/signup"><button>Sign Up</button></a>
+        </section>
+    </div>
 <%include ../partials/footer%>

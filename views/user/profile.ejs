@@ -1,3 +1,44 @@
 <%include ../partials/header%>
-    <h1>Profile page</h1>
+        <!-- Catalog -->
+    <div class="cart__page">
+        <section class="section-cart" id="section-cart">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    my previous orders
+                </h2>    
+            </div>
+        
+            <div class="shopping-cart">
+                <%if(orders){%>
+                    <%orders.forEach(function(order){%>
+                        <div class="order__list">
+                            <%order.items.forEach(function(product){%>
+                                <div class="shopping-cart__row">
+                                    <span class="shopping-cart__row--name"><%=product.item.name%></span>
+                                    <span class="shopping-cart__row--price">Rs.<%=product.price%></span>
+                                    <span class="shopping-cart__row--quantity">qty: <%=product.qty%></span>
+                                </div>
+                            <%})%>
+                            <div class="cart__total-row">
+                                <span class="shopping-cart__row--name">
+                                    Total
+                                </span> 
+                                <span class="shopping-cart__row--price">
+                                     rs.<%=order.cart.totalPrice%>
+                                </span>
+                            </div>
+                        </div>
+                    <%})%>
+                    
+                <%}else{%>
+                    <img class="cart__empty" src="http://www.comtechs.ca/images/Laptop.png" alt="laptopImg">
+                    <div class="u-center-text u-margin-bottom-big">
+                        <h2 class="heading-secondary">
+                            Your have made no orders till date
+                        </h2>    
+                    </div>
+                <%}%>
+            </div>
+        </section>
+    </div>
 <%include ../partials/footer%>
