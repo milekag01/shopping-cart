@@ -3,6 +3,7 @@ var router = express.Router();
 
 var Product = require("../models/product");
 var Cart = require("../models/cart");
+var Order = require("../models/storeOrder");
 
 router.get('/',function(req,res){
     res.redirect('/products');
@@ -25,6 +26,8 @@ router.get('/products',function(req,res){
     });
 });
 
+//note: req is an object which will store all the varibles or values given or passed through post request
+
 router.get('/add-to-cart/:id',function(req,res,next){
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -35,7 +38,7 @@ router.get('/add-to-cart/:id',function(req,res,next){
         }
         cart.add(product,product.id);
         req.session.cart = cart;
-        console.log(req.session.cart);
+        // console.log(req.session.cart);
         res.redirect('/');
     });
 });
@@ -48,9 +51,9 @@ router.get('/shopping-cart',function(req,res,next){
     res.render('cart',{products: cart.generateArray() , totalPrice: cart.totalPrice});
 });
 
-router.get('/checkout',function(req,res,next){
+router.get('/checkout',isLoggedIn,function(req,res,next){
     if(!req.session.cart){
-        return res.render('/shopping-cart');
+        return res.redirect('/shopping-cart');
     }
     var cart = new Cart(req.session.cart);
     var errMsg = req.flash('error')[0];
@@ -75,9 +78,33 @@ router.post('/checkout',function(req,res,next){
              req.flash('error',err.message);
              return res.redirect('/checkout');
          }
-         req.flash('success','Successfully bought product');
-         req.session.cart=null; //to clear the cart after buying the products
-         res.redirect('/products');
+         //creating new order
+         var order= new Order({
+             user: req.user,    //user is a prop. stored by passport in req object
+             name: req.body.name,
+             address: req.body.address,
+             cart: cart,
+             paymentId: charge.id 
+         });
+         //saving order in database
+         order.save(function(err,result){
+             if(err){
+                //  redirect user to 404 page
+                 console.log("Something went wrong...Order not stored");
+                 res.redirect("/products");
+             }
+             req.flash('success','Successfully bought product');
+             req.session.cart=null; //to clear the cart after buying the products
+             res.redirect('/products');
+         });
     });
 });
 module.exports = router;
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    req.session.prevUrl = req.url;
+    res.redirect('/user/signin');
+}
