@@ -70,7 +70,8 @@ router.post('/checkout',function(req,res,next){
     }
     var cart = new Cart(req.session.cart);
     //stripe documentation
-    var stripe = require("stripe")("sk_test_UIYkFcy7xXKvAK6EthzXEDpx");
+    var key = process.env.USERKEY;
+    var stripe = require("stripe")(key);
 
     stripe.charges.create({
       amount: Math.floor(cart.totalPrice/70 *100),
