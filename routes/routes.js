@@ -52,13 +52,15 @@ router.get('/shopping-cart',function(req,res,next){
     res.render('cart',{products: cart.generateArray() , totalPrice: cart.totalPrice});
 });
 
+
+//error handling in this route need to be checked 
 router.get('/checkout',isLoggedIn,function(req,res,next){
     if(!req.session.cart){
         return res.redirect('/shopping-cart');
     }
     var cart = new Cart(req.session.cart);
     var errMsg = req.flash('error');
-    console.log(errMsg.length);
+    // console.log(errMsg.length);
     res.render('checkout',{total: cart.totalPrice,Errors: errMsg.length>0,errMsg: errMsg[0]});
 });
 

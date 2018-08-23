@@ -13,7 +13,8 @@ var app = express();
 var indexroutes = require("./routes/routes");
 var userroutes = require("./routes/user");
 
-mongoose.connect('mongodb://localhost/shopping');
+// mongoose.connect('mongodb://localhost/shopping');
+mongoose.connect('mongodb://milek:test123@ds121674.mlab.com:21674/shopping');
 
 require("./config/passport");
 

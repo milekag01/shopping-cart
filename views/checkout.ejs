@@ -16,11 +16,9 @@
                 </span>
             </div>
             
-            <%console.log(Errors);if(Errors){%>
-                <div id="charge-error" class="error__message red">
+                <div id="charge-error" class="error__message">
                     <%=errMsg%>
                 </div>
-            <%}%>
             
             <form method="post" action="/checkout" id="checkout-form" class="form">
                 <div class="form__group">

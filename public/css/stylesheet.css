@@ -339,7 +339,7 @@ margin: 0 auto; }
 }
     
 .error__message{
-    background-color: #fff;
+    /*background-color: #fff;*/
     /*min-height: 43vh;*/
     max-width: 60rem;
     margin: 4rem auto 0 auto;
@@ -350,6 +350,7 @@ margin: 0 auto; }
     font-weight:400;
     text-transform: uppercase;
     text-align: center;
+    /*border:1.2px solid rgb(255, 22, 22);*/
 }
 .red{
     background-color: rgba(255, 22, 22, 0.3);
