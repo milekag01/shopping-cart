@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
+var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var passport = require("passport");
 var flash = require("connect-flash");
@@ -18,11 +19,12 @@ require("./config/passport");
 
 // var Product = require("./models/product");
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(validator());  //this should come after the bodyparser
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
+app.use(cookieParser());
 
 app.use(session({
     secret:'13 reasons why',

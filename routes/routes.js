@@ -44,6 +44,7 @@ router.get('/add-to-cart/:id',function(req,res,next){
 });
 
 router.get('/shopping-cart',function(req,res,next){
+    // console.log(req.session.cart);
     if(!req.session.cart){
         return res.render('cart',{products : null});
     }
@@ -100,6 +101,28 @@ router.post('/checkout',function(req,res,next){
          });
     });
 });
+
+router.get('/reduce/:id',function(req,res,next){
+    var pID = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    
+    cart.removeOne(pID);
+    req.session.cart = cart;
+    // console.log(req.session.cart);
+    res.redirect('/shopping-cart');
+});
+
+router.get('/remove/:id',function(req,res,next){
+    var pID = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    
+    cart.removeAll(pID);
+    req.session.cart = cart;
+    // console.log(req.session.cart.totalQty);
+
+    res.redirect('/shopping-cart');
+});
+
 module.exports = router;
 
 function isLoggedIn(req,res,next){

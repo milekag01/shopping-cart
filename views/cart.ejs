@@ -17,8 +17,8 @@
                             <span class="shopping-cart__row--quantity">qty: <%=product.qty%></span>
                             
                             <div class="shopping-cart__row--buttons">
-                                <button class="remove btn-remove">Remove One</button>
-                                <button class="remove btn-remove">Remove All</button>
+                                <a href="/reduce/<%=product.item._id%>"><button class="remove btn-remove">Remove One</button></a>
+                                <a href="/remove/<%=product.item._id%>"><button class="remove btn-remove">Remove All</button></a>
                             </div>
                         </div>
                     <%})%>
